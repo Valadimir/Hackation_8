@@ -29,7 +29,7 @@ services:
     restart: always
     container_name: ad.adminer
     ports:
-      - 4002:8080
+      - 4001:8080
     networks:
       - hackaton
   
@@ -38,7 +38,7 @@ services:
     restart: always
     container_name: ad.node
     ports:
-      - 4001:1234
+      - 4002:1234
     volumes:
       - $PWD/api:/usr/src/app
     working_dir: /usr/src/app
