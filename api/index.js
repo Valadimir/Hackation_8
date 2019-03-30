@@ -9,7 +9,7 @@ var con = mysql.createConnection({
 
   host: "localhost",
   user: "root",
-  password: "bright356" ,
+  password: "example" ,
   port: 3306,
   database: "sampledatabase"
 

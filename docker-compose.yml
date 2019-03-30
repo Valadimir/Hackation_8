@@ -18,6 +18,8 @@ services:
     image: mariadb:10.3
     restart: always
     container_name: ad.mariadb
+    ports:
+      - 4005:3306
     environment:
       MYSQL_ROOT_PASSWORD: example
     networks:
