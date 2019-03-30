@@ -1,0 +1,26 @@
+.pr-left{
+    background-color: red;
+}
+
+
+.pr-right{
+    background-color: blue;
+
+
+}
+.inside-left{
+ background-color: beige;
+ 
+}
+.inside-right{
+ background-color: beige;
+    
+}
+.pr-mrt{
+    margin-top:20px;
+}
+.pr-box{
+    border-radius: 5px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
