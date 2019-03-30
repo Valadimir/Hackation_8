@@ -9,12 +9,14 @@ var con = mysql.createConnection({
 
   host: "localhost",
   user: "root",
-  password: "bright356" ,
-  port: 3306,
+  password: "example" ,
+  port: 4005,
   database: "sampledatabase"
 
 
 });
+
+console.log("Server is open ");
 
 
 
@@ -105,7 +107,7 @@ app.get('/addUser',function (req,res) {
 
   if(error) throw error ;
 
-  console.log("Connected!");
+  console.log("Connected db");
     // insert query
     sqlinsert = 'insert into users (name,surname,idPWD,citizenID,typeOfPWD,password,province,numHome,road,postcode,district,subdistrict,birth,gender) values ?';
     var values = [[n,s,idp,ct,tp,p,pr,nu,r,ps,d,su,b,g]];
@@ -118,6 +120,31 @@ app.get('/addUser',function (req,res) {
 
     res.end("Insert complete");
   });
+});
+
+//select all
+app.get('/selectAll',function (req,res) {
+
+
+
+  con.connect(function(error){
+    if (error) throw error;
+    console.log("Connect db");
+
+    sqlselect = 'select * from users';
+    con.query(sqlselect,function(error,result){
+
+      if (error) throw error;
+
+      console.log(result);
+      res.send(result);
+    });
+
+  });
+
+
+
+
 });
 
 
