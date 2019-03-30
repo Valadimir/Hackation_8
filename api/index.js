@@ -7,7 +7,7 @@ var mysql = require('mysql');
 //create connection
 var con = mysql.createConnection({
 
-  host: "localhost",
+  host: "35.198.234.221",
   user: "root",
   password: "example" ,
   port: 4005,
@@ -39,16 +39,6 @@ app.get('/test',function (req,res) {
 // add user to database
 app.get('/addUser',function (req,res) {
   //data is send from frontend
-
-
-/*
-  fs.readFile(__dirname+"/"+"user.json",'utf8',function (err,data){
-    var users = JSON.parse(data);//convert obj to json
-    var user = users["user"+req.params.id]//json use
-    console.log(user);
-    res.end(JSON.stringify(user));
-    */
-
     /*
     user = {
 
@@ -102,7 +92,7 @@ app.get('/addUser',function (req,res) {
     var d = user['district'];
     var su = user['subdistrict'];
     var b = user['birth'];
-    var g = user['geder'];
+    var g = user['gender'];
   con.connect(function(error){
 
   if(error) throw error ;
@@ -137,13 +127,12 @@ app.get('/selectAll',function (req,res) {
       if (error) throw error;
 
       console.log(result);
-      res.send(result);
+
+      res.send(JSON.stringify(result));
+
     });
 
   });
-
-
-
 
 });
 
