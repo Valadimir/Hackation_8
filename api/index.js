@@ -37,6 +37,12 @@ app.get('/test',function (req,res) {
 
 });
 
+app.get('/data',function (req,res) {
+
+  res.send('sdssdsd');
+
+});
+
 // add user to database
 app.get('/addUser',function (req,res) {
   //data is send from frontend
