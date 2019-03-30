@@ -8,6 +8,7 @@
 @import url(css/magnific-popup.css);
 @import url(css/font-awesome.min.css);
 @import url(css/classy-nav.min.css);
+@import url(css/custom.css);
 /* :: 3.0 Base CSS */
 * {
   margin: 0;
@@ -654,8 +655,8 @@ textarea:focus {
       text-transform: uppercase;
       color: #ffffff;
       letter-spacing: 0.75px; }
-      .single-popular-course .seat-rating-fee .course-fee a.free {
-        background-color: #3762f0; }
+      .single-popular-course .seat-rating-fee .course-fee a.read-btn {
+        background-color: #ff4800da; }
 
 .single-course-intro {
   position: relative;
@@ -1413,11 +1414,8 @@ textarea:focus {
   z-index: 1; }
   .single-tutors-slides .tutor-thumbnail {
     width: 165px;
-    height: 165px;
-    background-color: #000;
     border-radius: 6px;
-    margin: 0 auto 40px;
-    box-shadow: 0 0 30px rgba(0, 0, 0, 0.15); }
+    margin: 0 auto 40px; }
     .single-tutors-slides .tutor-thumbnail img {
       border-radius: 6px;
       width: 100%; }

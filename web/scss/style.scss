@@ -17,6 +17,7 @@
 @import 'css/magnific-popup.css';
 @import 'css/font-awesome.min.css';
 @import 'css/classy-nav.min.css';
+@import 'css/custom.css';
 
 /* :: 3.0 Base CSS */
 
@@ -796,8 +797,8 @@ textarea:focus {
                 text-transform: uppercase;
                 color: $white-color;
                 letter-spacing: 0.75px;
-                &.free {
-                    background-color: $bg-default;
+                &.read-btn {
+                    background-color: $bg-read-btn;
                 }
             }
         }
@@ -1685,11 +1686,11 @@ textarea:focus {
     z-index: 1;
     .tutor-thumbnail {
         width: 165px;
-        height: 165px;
-        background-color: #000;
+        // height: 165px;
+        // background-color: #000;
         border-radius: 6px;
         margin: 0 auto 40px;
-        box-shadow: 0 0 30px rgba(0, 0, 0, 0.15);
+        // box-shadow: 0 0 30px rgba(0, 0, 0, 0.15);
         img {
             border-radius: 6px;
             width: 100%;
