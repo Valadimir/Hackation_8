@@ -418,9 +418,7 @@
                             <div class="date">
                                 <p><i class="fa fa-clock"></i> August 26 @ 9:00 am</p>
                             </div>
-                            <div class="events-fee">
-                                <a href="#">$45</a>
-                            </div>
+                            
                         </div>
                     </div>
                 </div>
@@ -439,9 +437,7 @@
                             <div class="date">
                                 <p><i class="fa fa-clock"></i> August 7 @ 9:00 am</p>
                             </div>
-                            <div class="events-fee">
-                                <a href="#" class="free">Free</a>
-                            </div>
+                            
                         </div>
                     </div>
                 </div>
@@ -460,9 +456,7 @@
                             <div class="date">
                                 <p><i class="fa fa-clock"></i> August 3 @ 9:00 am</p>
                             </div>
-                            <div class="events-fee">
-                                <a href="#">$45</a>
-                            </div>
+                            
                         </div>
                     </div>
                 </div>
@@ -538,7 +532,7 @@
                         </div>
                         <!-- Copywrite -->
                         <p><a href="#"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved by hackaton
 <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
                     </div>
                 </div>
@@ -574,6 +568,21 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
     <script src="js/plugins/plugins.js"></script>
     <!-- Active js -->
     <script src="js/active.js"></script>
+
+    <!-- <script src="event.js"></script> -->
+
+    <script>
+    $( document ).ready(function() {
+
+        $.ajax({
+        type: 'GET',
+        url: 'localhost:3333/data',
+        success: function(data) {
+             console.log(data)
+        }
+    });
+        });
+    </script>
 </body>
 
 </html>
