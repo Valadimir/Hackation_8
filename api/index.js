@@ -114,9 +114,6 @@ app.get('/addUser',function (req,res) {
 
 //select all
 app.get('/selectAll',function (req,res) {
-
-
-
   con.connect(function(error){
     if (error) throw error;
     console.log("Connect db");
@@ -129,11 +126,25 @@ app.get('/selectAll',function (req,res) {
       console.log(result);
 
       res.send(JSON.stringify(result));
-
     });
-
   });
+});
 
+app.get('/selectPWDbyType',function (req,res) {
+  con.connect(function(error){
+    if (error) throw error;
+    console.log("Connect db");
+
+    sqlselect = 'select * from users where typeOfPWD = ?';
+    con.query(sqlselect,function(error,result){
+
+      if (error) throw error;
+
+      console.log(result);
+
+      res.send(JSON.stringify(result));
+    });
+  });
 });
 
 
