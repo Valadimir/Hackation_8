@@ -7,14 +7,17 @@ var mysql = require('mysql');
 //create connection
 var con = mysql.createConnection({
 
-  host: "localhost",
+  host: "35.198.234.221",
   user: "root",
   password: "example" ,
-  port: 3306,
+  port: 4005,
+
   database: "sampledatabase"
 
 
 });
+
+console.log("Server is open ");
 
 
 
@@ -34,22 +37,9 @@ app.get('/test',function (req,res) {
 
 });
 
-
-
 // add user to database
-
-app.post('/addUser',function (req,res) {
+app.get('/addUser',function (req,res) {
   //data is send from frontend
-
-
-/*
-  fs.readFile(__dirname+"/"+"user.json",'utf8',function (err,data){
-    var users = JSON.parse(data);//convert obj to json
-    var user = users["user"+req.params.id]//json use
-    console.log(user);
-    res.end(JSON.stringify(user));
-    */
-
     /*
     user = {
 
@@ -71,7 +61,7 @@ app.post('/addUser',function (req,res) {
     }
     */
 
-    user = {
+    var user = {
 
       "name": 'aaa',
       "surname": 'aaa',
@@ -83,23 +73,35 @@ app.post('/addUser',function (req,res) {
       "numHome": '3/2',
       "road": 'aaa',
       "postcode": 123,
-      "district": req.body.di,
-      "subdistrict": req.body.sub,
-      "birth": req.body.bir,
-      "gender": req.body.ge
+      "district": 'a',
+      "subdistrict": 'a',
+      "birth": 'a',
+      "gender": 's'
 
     }
+
+    var n = user["name"];
+    var s = user["surname"];
+    var idp = user["idPWD"];
+    var ct = user['citizenID'];
+    var tp = user['typeOfPWD'];
+    var p = user['password'];
+    var pr = user['province'];
+    var nu = user['numHome'];
+    var r = user['road'];
+    var ps = user['postcode'];
+    var d = user['district'];
+    var su = user['subdistrict'];
+    var b = user['birth'];
+    var g = user['gender'];
   con.connect(function(error){
 
   if(error) throw error ;
 
-  console.log("Connected!");
-
-
-
+  console.log("Connected db");
     // insert query
     sqlinsert = 'insert into users (name,surname,idPWD,citizenID,typeOfPWD,password,province,numHome,road,postcode,district,subdistrict,birth,gender) values ?';
-    var values = [[n,s]];
+    var values = [[n,s,idp,ct,tp,p,pr,nu,r,ps,d,su,b,g]];
     con.query(sqlinsert,[values], function(error,result){
 
       if (error) throw error;
@@ -107,17 +109,45 @@ app.post('/addUser',function (req,res) {
     });
 
 
-
-
-
-
-
+    res.end("Insert complete");
   });
+});
+
+//select all
+app.get('/selectAll',function (req,res) {
+  con.connect(function(error){
+    if (error) throw error;
+    console.log("Connect db");
+
+    sqlselect = 'select * from users';
+    con.query(sqlselect,function(error,result){
+
+      if (error) throw error;
+
+      console.log(result);
+
+      res.send(JSON.stringify(result));
+    });
+  });
+});
+
+app.get('/selectPWDbyType',function (req,res) {
+  con.connect(function(error){
+    if (error) throw error;
+    console.log("Connect db");
+
+    sqlselect = 'select * from users where typeOfPWD = ?';
+    con.query(sqlselect,function(error,result){
+
+      if (error) throw error;
+
+      console.log(result);
+
+      res.send(JSON.stringify(result));
+    });
+  });
+});
 
 
-
-
-
-})
 
 app.listen(8000);
