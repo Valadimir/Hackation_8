@@ -1,0 +1,54 @@
+# Use root/example as user/password credentials
+version: '3.5'
+
+services:
+
+  apache:
+    image: httpd:2.4
+    container_name: web.server
+    restart: always
+    ports:
+      - 8080:80
+    volumes:
+      - ${PWD}/web:/usr/local/apache2/htdocs/
+    networks:
+      - hackaton
+
+  db:
+    image: mariadb:10.3
+    restart: always
+    container_name: ad.mariadb
+    ports:
+      - 4005:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: example
+    networks:
+      - hackaton
+
+
+  adminer:
+    image: adminer
+    restart: always
+    container_name: ad.adminer
+    ports:
+      - 4001:8080
+    networks:
+      - hackaton
+  
+  node:
+    image: node
+    restart: always
+    container_name: ad.node
+    ports:
+      - 4002:1234
+    volumes:
+      - $PWD/api:/usr/src/app
+    working_dir: /usr/src/app
+    networks:
+      - hackaton
+    command: node index.js
+
+networks:
+  hackaton:
+    name: ad-network
+    driver: bridge
